@@ -1,0 +1,15 @@
+[Unit]
+Description=ngrok TCP service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=mui
+ExecStart=
+ExecStart=/home/mui/Tools/bin/ngrok tcp --region=ap --remote-addr 1.tcp.ap.ngrok.io:20536 22
+
+[Install]
+WantedBy=multi-user.target
